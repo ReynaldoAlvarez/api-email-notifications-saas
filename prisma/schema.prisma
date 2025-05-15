@@ -1,0 +1,126 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+// Modelo para permisos
+model Permission {
+  id          String    @id @default(uuid())
+  code        String    @unique
+  name        String
+  description String?   @db.Text
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+
+  systemPermissions SystemPermission[]
+}
+// Tabla de relación muchos a muchos entre sistemas y permisos
+
+model SystemPermission {
+  id                String           @id @default(uuid())
+  systemId          String
+  permissionId      String
+  createdAt         DateTime         @default(now()) @map("created_at")
+
+  authorizedSystem  AuthorizedSystem @relation(fields: [systemId], references: [id], onDelete: Cascade)
+  permission        Permission       @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+
+  @@unique([systemId, permissionId])
+}
+// Modificación en AuthorizedSystem para usar la relación
+
+model AuthorizedSystem {
+  id               String             @id @default(uuid())
+  name             String             @unique @db.VarChar(100)
+  apiKeyHash       String             @unique
+  description      String?            @db.Text
+  allowedOrigins   String[]
+  createdAt        DateTime           @default(now()) @map("created_at")
+  updatedAt        DateTime           @updatedAt @map("updated_at")
+  isActive         Boolean            @default(true)
+
+  emailLogs        EmailLog[]
+  systemPermissions SystemPermission[]
+
+  @@index([name])
+  @@index([isActive])
+}
+// Modelo para eventos de webhook
+model WebhookEvent {
+  id          String    @id @default(uuid())
+  emailLogId  String
+  eventType   String
+  rawPayload  Json
+  processedAt DateTime  @default(now())
+
+  emailLog    EmailLog  @relation(fields: [emailLogId], references: [id])
+
+  @@index([emailLogId])
+  @@index([eventType])
+  @@index([processedAt])
+}
+// Modificación en EmailLog para la relación con WebhookEvent
+
+model EmailLog {
+  id          String    @id @default(uuid())
+  to          String    @db.VarChar(255)
+  subject     String    @db.VarChar(255)
+  body        String?   @db.Text
+  status      EmailStatus @default(PENDING)
+  systemId    String?
+  templateId  String?
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+  attachments Json?
+  error       String?   @db.Text
+  metadata    Json?
+  sentAt      DateTime?
+  deliveredAt DateTime?
+  openedAt    DateTime?
+  clickedAt   DateTime?
+
+  authorizedSystem AuthorizedSystem? @relation(fields: [systemId], references: [id])
+  emailTemplate    EmailTemplate?  @relation(fields: [templateId], references: [id])
+  webhookEvents    WebhookEvent[]
+
+  @@index([to])
+  @@index([systemId])
+  @@index([templateId])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model EmailTemplate {
+  id          String    @id @default(uuid())
+  name        String    @unique @db.VarChar(100)
+  subject     String    @db.VarChar(255)
+  contentHtml String    @db.Text
+  contentText String?   @db.Text
+  variables   String[]
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+  isActive    Boolean   @default(true)
+
+  emailLogs EmailLog[]
+
+  @@index([name])
+  @@index([isActive])
+}
+
+enum EmailStatus {
+  PENDING
+  SCHEDULED
+  QUEUED
+  SENT
+  FAILED
+  DELIVERED
+  BOUNCED
+  COMPLAINT
+  REJECTED
+  OPENED
+  CLICKED
+  UNSUBSCRIBED
+}
