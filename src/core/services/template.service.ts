@@ -1,5 +1,6 @@
 import prisma from '../../lib/prisma';
 import logger from '../../lib/logger';
+import { EmailTemplateType } from '../../api/v1/validators/template.validators'
 
 /**
  * Renderiza una plantilla con las variables proporcionadas
@@ -46,3 +47,87 @@ export async function renderTemplate(
     throw error;
   }
 }
+
+
+
+// Crear plantilla
+export const createEmailTemplate = async (name: string, subject: string, contentHtml: string, contentText?: string, variables?: string[]): Promise<EmailTemplateType> => {
+  const template = await prisma.emailTemplate.create({
+    data: {
+      name,
+      subject,
+      contentHtml,
+      contentText: contentText || "",
+      variables: variables || [],
+      isActive: true
+    }
+  });
+  
+  // Ensure the return type matches EmailTemplateType by explicitly constructing the object
+  return {
+    name: template.name,
+    subject: template.subject,
+    contentHtml: template.contentHtml,
+    contentText: template.contentText || "", // Ensure contentText is always a string
+    variables: template.variables,
+    isActive: template.isActive
+  };
+};
+
+// Leer plantilla
+export const getEmailTemplate = async (id: string): Promise<EmailTemplateType | null> => {
+  const template = await prisma.emailTemplate.findUnique({
+    where: { id }
+  });
+  
+  if (!template) return null;
+  
+  return {
+    name: template.name,
+    subject: template.subject,
+    contentHtml: template.contentHtml,
+    contentText: template.contentText || "", // Ensure contentText is always a string
+    variables: template.variables,
+    isActive: template.isActive
+  };
+};
+
+// Actualizar plantilla
+export const updateEmailTemplate = async (id: string, name: string, subject: string, contentHtml: string, contentText?: string, variables?: string[]): Promise<EmailTemplateType | null> => {
+  const template = await prisma.emailTemplate.update({
+    where: { id },
+    data: {
+      name,
+      subject,
+      contentHtml,
+      contentText,
+      variables: variables || [],
+      updatedAt: new Date()
+    }
+  });
+  
+  return {
+    name: template.name,
+    subject: template.subject,
+    contentHtml: template.contentHtml,
+    contentText: template.contentText || "", // Ensure contentText is always a string
+    variables: template.variables,
+    isActive: template.isActive
+  };
+};
+
+// Eliminar plantilla
+export const deleteEmailTemplate = async (id: string): Promise<EmailTemplateType | null> => {
+  const template = await prisma.emailTemplate.delete({
+    where: { id }
+  });
+  
+  return {
+    name: template.name,
+    subject: template.subject,
+    contentHtml: template.contentHtml,
+    contentText: template.contentText || "", // Ensure contentText is always a string
+    variables: template.variables,
+    isActive: template.isActive
+  };
+};
