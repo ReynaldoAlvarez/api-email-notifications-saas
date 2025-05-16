@@ -9,6 +9,7 @@ import logger from './lib/logger';
 import { errorConverter, errorHandler, notFoundHandler } from './middleware/errorHandler';
 import { requireAuthorization } from './api/v1/middlewares/requireAuthorization';
 import emailRoutes from './api/v1/routes/email.routes';
+import templateRoutes from './api/v1/routes/template.routes';
 import en from 'zod/lib/locales/en';
 
 // Crear aplicación Express
@@ -56,6 +57,7 @@ app.get('/api/v1/auth-test', requireAuthorization, (req, res) => {
   });
 });
 app.use('/api/v1/email', emailRoutes);
+app.use('/api/v1/template', templateRoutes);
 
 // Manejo de rutas no encontradas
 app.use(notFoundHandler);
