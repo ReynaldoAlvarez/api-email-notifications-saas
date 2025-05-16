@@ -1,0 +1,33 @@
+2025-05-16T04:05:16.685Z [info]: Shutting down server... 
+2025-05-16T04:05:16.705Z [info]: Server shut down successfully 
+2025-05-16T04:11:21.419Z [info]: Connected to database 
+2025-05-16T04:11:21.421Z [info]: Server running on port 3000 in development mode 
+2025-05-16T04:11:21.421Z [info]: Health check available at http://localhost:3000/health 
+2025-05-16T04:11:25.672Z [error]: Invalid request data: [
+  {
+    "validation": "uuid",
+    "code": "invalid_string",
+    "message": "ID de plantilla inválido",
+    "path": [
+      "templateId"
+    ]
+  }
+] {"stack":"Error: Invalid request data: [\n  {\n    \"validation\": \"uuid\",\n    \"code\": \"invalid_string\",\n    \"message\": \"ID de plantilla inválido\",\n    \"path\": [\n      \"templateId\"\n    ]\n  }\n]\n    at /Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/src/api/v1/controllers/email.controller.ts:16:13\n    at Generator.next (<anonymous>)\n    at /Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/src/api/v1/controllers/email.controller.ts:41:71\n    at new Promise (<anonymous>)\n    at __awaiter (/Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/src/api/v1/controllers/email.controller.ts:37:12)\n    at sendEmailHandler (/Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/src/api/v1/controllers/email.controller.ts:53:12)\n    at Layer.handleRequest (/Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/node_modules/.pnpm/router@2.2.0/node_modules/router/lib/layer.js:152:17)\n    at next (/Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/node_modules/.pnpm/router@2.2.0/node_modules/router/lib/route.js:157:13)\n    at /Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/src/api/v1/routes/email.routes.ts:20:3\n    at Layer.handleRequest (/Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/node_modules/.pnpm/router@2.2.0/node_modules/router/lib/layer.js:152:17)","name":"Error"}
+2025-05-16T04:12:47.208Z [error]: Invalid request data: [
+  {
+    "validation": "uuid",
+    "code": "invalid_string",
+    "message": "ID de plantilla inválido",
+    "path": [
+      "templateId"
+    ]
+  }
+] {"stack":"Error: Invalid request data: [\n  {\n    \"validation\": \"uuid\",\n    \"code\": \"invalid_string\",\n    \"message\": \"ID de plantilla inválido\",\n    \"path\": [\n      \"templateId\"\n    ]\n  }\n]\n    at /Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/src/api/v1/controllers/email.controller.ts:16:13\n    at Generator.next (<anonymous>)\n    at /Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/src/api/v1/controllers/email.controller.ts:41:71\n    at new Promise (<anonymous>)\n    at __awaiter (/Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/src/api/v1/controllers/email.controller.ts:37:12)\n    at sendEmailHandler (/Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/src/api/v1/controllers/email.controller.ts:53:12)\n    at Layer.handleRequest (/Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/node_modules/.pnpm/router@2.2.0/node_modules/router/lib/layer.js:152:17)\n    at next (/Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/node_modules/.pnpm/router@2.2.0/node_modules/router/lib/route.js:157:13)\n    at /Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/src/api/v1/routes/email.routes.ts:20:3\n    at Layer.handleRequest (/Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/node_modules/.pnpm/router@2.2.0/node_modules/router/lib/layer.js:152:17)","name":"Error"}
+2025-05-16T04:13:24.093Z [info]: Created initial email log: c4203853-2dbd-40bf-9150-32cc48cb6a98 
+2025-05-16T04:13:24.886Z [info]: Email sent successfully: 010f0196d74c021c-bcf73555-47d9-426b-be10-e622254f0485-000000 {"messageId":"010f0196d74c021c-bcf73555-47d9-426b-be10-e622254f0485-000000","to":"iadevs7@gmail.com"}
+2025-05-16T04:13:24.895Z [info]: Updated email log status: c4203853-2dbd-40bf-9150-32cc48cb6a98 -> QUEUED 
+2025-05-16T04:16:13.659Z [info]: Created initial email log: 9a63f277-a8aa-443c-982e-22bc39990fe0 
+2025-05-16T04:16:14.340Z [info]: Email sent successfully: 010f0196d74e9819-2ad59b75-8830-4013-a80a-72befa89f7bb-000000 {"messageId":"010f0196d74e9819-2ad59b75-8830-4013-a80a-72befa89f7bb-000000","to":"iadevs7@gmail.com"}
+2025-05-16T04:16:14.350Z [info]: Updated email log status: 9a63f277-a8aa-443c-982e-22bc39990fe0 -> QUEUED 
+2025-05-16T04:21:21.847Z [info]: Shutting down server... 
+2025-05-16T04:21:21.856Z [info]: Server shut down successfully 
