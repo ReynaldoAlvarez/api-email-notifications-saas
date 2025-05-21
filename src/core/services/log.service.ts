@@ -89,6 +89,8 @@ export async function updateLogStatus(
   }
 }
 
+
+
 /**
  * Actualiza un registro de correo con información de error
  */
@@ -112,5 +114,26 @@ export async function updateLogError(
   } catch (dbError) {
     logger.error('Error updating email log with error', { error: dbError, logId, errorMessage });
     throw dbError;
+  }
+}
+export async function getEmailLogs(): Promise<EmailLog[]> {
+  try {
+    const logs = await prisma.emailLog.findMany();
+    return logs;
+  } catch (error) {
+    logger.error('Error getting email logs', { error });
+    throw error;
+  }
+}
+
+export async function getEmailLog(id: string): Promise<EmailLog | null> {
+  try {
+    const log = await prisma.emailLog.findUnique({
+      where: { id },
+    });
+    return log;
+  } catch (error) {
+    logger.error('Error getting email log', { error, id });
+    throw error;
   }
 }
