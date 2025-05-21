@@ -11,6 +11,9 @@ import { requireAuthorization } from './api/v1/middlewares/requireAuthorization'
 import emailRoutes from './api/v1/routes/email.routes';
 import templateRoutes from './api/v1/routes/template.routes';
 import en from 'zod/lib/locales/en';
+import systemRoutes from './api/v1/routes/admin/system.routes';
+import logRoutes from './api/v1/routes/admin/log.routes';
+import statsRoutes from './api/v1/routes/admin/stats.routes';
 
 // Crear aplicación Express
 const app = express();
@@ -58,7 +61,9 @@ app.get('/api/v1/auth-test', requireAuthorization, (req, res) => {
 });
 app.use('/api/v1/email', emailRoutes);
 app.use('/api/v1/template', templateRoutes);
-
+app.use('/api/v1/admin/system', systemRoutes);
+app.use('/api/v1/admin/log', logRoutes);
+app.use('/api/v1/admin/stats', statsRoutes);
 // Manejo de rutas no encontradas
 app.use(notFoundHandler);
 
