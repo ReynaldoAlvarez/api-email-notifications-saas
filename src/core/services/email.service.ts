@@ -19,12 +19,25 @@ export async function sendDirectEmail(
       filename: string;
       content: string;
       contentType?: string;
+      size?: number;
+      format?: string;
     }>;
     metadata?: Record<string, any>;
   },
   systemId: string
 ) {
   try {
+    // Validar tamaños y formatos de archivos adjuntos
+    if (data.attachments) {
+      for (const attachment of data.attachments) {
+        if (attachment.size && attachment.size > 10 * 1024 * 1024) {
+          throw new Error('El tamaño del archivo no puede exceder 10 MB');
+        }
+        if (attachment.format && !['pdf', 'docx', 'png', 'jpeg', 'jpg'].includes(attachment.format.toLowerCase())) {
+          throw new Error('Formato de archivo no permitido');
+        }
+      }
+    }
     // Convertir destinatarios a formato de cadena para el log
     const toStr = Array.isArray(data.to) ? data.to.join(',') : data.to;
     
@@ -46,9 +59,6 @@ export async function sendDirectEmail(
     }));
 
     // Enviar correo a través de AWS SES
-    console.log("---------- ------------")
-
-    console.log("llego")
     try {
       const { messageId } = await sendEmail({
         to: data.to,
@@ -109,12 +119,26 @@ export async function sendTemplateEmail(
       filename: string;
       content: string;
       contentType?: string;
+      size?: number;
+      format?: string;
     }>;
     metadata?: Record<string, any>;
   },
   systemId: string
 ) {
   try {
+    // Validar tamaños y formatos de archivos adjuntos
+    if (data.attachments) {
+      for (const attachment of data.attachments) {
+        if (attachment.size && attachment.size > 10 * 1024 * 1024) {
+          throw new Error('El tamaño del archivo no puede exceder 10 MB');
+        }
+        if (attachment.format && !['pdf', 'docx', 'png', 'jpeg', 'jpg'].includes(attachment.format.toLowerCase())) {
+          throw new Error('Formato de archivo no permitido');
+        }
+      }
+    }
+
     // Obtener y renderizar la plantilla
     const renderedTemplate = await templateService.renderTemplate(
       data.templateId,
