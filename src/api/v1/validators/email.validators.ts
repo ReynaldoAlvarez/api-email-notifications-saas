@@ -5,6 +5,11 @@ const attachmentSchema = z.object({
   filename: z.string().min(1, 'El nombre del archivo es requerido'),
   content: z.string().min(1, 'El contenido del archivo es requerido'), // Base64
   contentType: z.string().optional(),
+  size: z.number().max(10 * 1024 * 1024, 'El tamaño del archivo no puede exceder 10 MB').optional(), // 10 MB
+  format: z.string().refine(
+    (format) => ['pdf', 'docx', 'png', 'jpeg', 'jpg'].includes(format.toLowerCase()),
+    'Formato de archivo no permitido'
+  ).optional(),
 });
 
 // Esquema para envío directo de correo
