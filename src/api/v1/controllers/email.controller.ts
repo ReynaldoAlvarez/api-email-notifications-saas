@@ -1,5 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { sendEmailSchema } from '../validators/email.validators';
+import { emailQueue } from '../../v1/manager/queue/queueManager';
+
 import * as emailService from '../../../core/services/email.service';
 import logger from '../../../lib/logger';
 import { BadRequestError } from '../../../errors/ApiError';
@@ -22,47 +24,33 @@ export async function sendEmailHandler(req: Request, res: Response, next: NextFu
     if (!systemId) {
       throw new BadRequestError('System ID not found in request');
     }
+     // Verificar que el subject esté definido solo para emails directos
+     if (data.type === 'direct' && !data.subject) {
+      throw new BadRequestError('Subject is required for direct emails');
+    }
     
+    // Preparar los datos para la cola, asegurando que siempre haya un subject
+    let queueData;
+    
+    if (data.type === 'direct') {
+      // Para emails directos, usamos los datos tal cual
+      queueData = data;
+    } else {
+      // Para emails de plantilla, añadimos un subject por defecto
+      queueData = {
+        ...data,
+        subject: `Template Email: ${data.templateId}`
+      };
+    }
+    
+    const job = await emailQueue.add('emailJob', { data: queueData, systemId });
     let result;
     
     // Determinar si es envío directo o por plantilla
-    if (data.type === 'direct') {
-      result = await emailService.sendDirectEmail({
-        to: data.to,
-        cc: data.cc,
-        bcc: data.bcc,
-        subject: data.subject,
-        html: data.html,
-        text: data.text,
-        attachments: data.attachments,
-        metadata: data.metadata,
-      }, systemId);
-    } else {
-      // Es envío por plantilla
-      result = await emailService.sendTemplateEmail({
-        to: data.to,
-        cc: data.cc,
-        bcc: data.bcc,
-        templateId: data.templateId,
-        variables: data.variables,
-        attachments: data.attachments,
-        metadata: data.metadata,
-      }, systemId);
-    }
-    
-    if (result.success) {
-      return res.status(202).json({
-        message: 'Email queued for delivery',
-        emailId: result.emailId,
-        messageId: result.messageId,
-      });
-    } else {
-      return res.status(500).json({
-        error: 'Failed to send email',
-        message: result.error,
-        emailId: result.emailId,
-      });
-    }
+    return res.status(202).json({
+      message: 'Email queued for delivery',
+      jobId: job.id,
+    });
   } catch (error) {
     next(error);
   }

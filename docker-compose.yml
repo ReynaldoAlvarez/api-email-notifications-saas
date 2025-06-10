@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  # Base de datos PostgreSQL
+  postgres:
+    image: postgres:15-alpine
+    container_name: email-api-postgres
+    environment:
+      POSTGRES_DB: email_notifications
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - email-api-network
+
+  # Redis para colas de trabajo
+  redis:
+    image: redis:7-alpine
+    container_name: email-api-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - email-api-network
+
+  # Aplicación principal
+  app:
+    build: .
+    container_name: email-api-app
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgresql://postgres:postgres123@postgres:5432/email_notifications
+      REDIS_URL: redis://redis:6379
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - email-api-network
+    volumes:
+      - ./logs:/app/logs
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  email-api-network:
+    driver: bridge

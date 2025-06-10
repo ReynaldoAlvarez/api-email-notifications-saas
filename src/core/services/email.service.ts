@@ -114,7 +114,7 @@ export async function sendTemplateEmail(
     cc?: string | string[];
     bcc?: string | string[];
     templateId: string;
-    variables: Record<string, any>;
+    variables?: Record<string, any>;
     attachments?: Array<{
       filename: string;
       content: string;
@@ -142,7 +142,7 @@ export async function sendTemplateEmail(
     // Obtener y renderizar la plantilla
     const renderedTemplate = await templateService.renderTemplate(
       data.templateId,
-      data.variables
+      data.variables || {}
     );
 
     if (!renderedTemplate) {
@@ -162,7 +162,7 @@ export async function sendTemplateEmail(
       attachments: data.attachments,
       metadata: {
         ...data.metadata,
-        variables: data.variables,
+        variables: data.variables || {},
       },
     });
 

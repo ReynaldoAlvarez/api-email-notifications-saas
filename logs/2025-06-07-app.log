@@ -1,0 +1,52 @@
+2025-06-07T00:09:31.135Z [error]: Error finding authorized system {"error":{"code":"P2021","meta":{"modelName":"AuthorizedSystem","table":"public.AuthorizedSystem"},"clientVersion":"6.7.0","name":"PrismaClientKnownRequestError"},"name":"apisiat"}
+2025-06-07T00:09:31.149Z [error]: Authentication error {"error":{"statusCode":500,"isOperational":true}}
+2025-06-07T00:09:31.150Z [error]: Authentication failed {"stack":"Error: Authentication failed\n    at /app/src/api/v1/middlewares/requireAuthorization.ts:49:17\n    at Generator.throw (<anonymous>)\n    at rejected (/app/src/api/v1/middlewares/requireAuthorization.ts:6:65)","name":"Error"}
+2025-06-07T00:10:07.346Z [error]: Error finding authorized system {"error":{"code":"P2021","meta":{"modelName":"AuthorizedSystem","table":"public.AuthorizedSystem"},"clientVersion":"6.7.0","name":"PrismaClientKnownRequestError"},"name":"apisiat"}
+2025-06-07T00:10:07.347Z [error]: Authentication error {"error":{"statusCode":500,"isOperational":true}}
+2025-06-07T00:10:07.348Z [error]: Authentication failed {"stack":"Error: Authentication failed\n    at /app/src/api/v1/middlewares/requireAuthorization.ts:49:17\n    at Generator.throw (<anonymous>)\n    at rejected (/app/src/api/v1/middlewares/requireAuthorization.ts:6:65)","name":"Error"}
+2025-06-07T00:10:13.578Z [error]: Error finding authorized system {"error":{"code":"P2021","meta":{"modelName":"AuthorizedSystem","table":"public.AuthorizedSystem"},"clientVersion":"6.7.0","name":"PrismaClientKnownRequestError"},"name":"apisiat"}
+2025-06-07T00:10:13.580Z [error]: Authentication error {"error":{"statusCode":500,"isOperational":true}}
+2025-06-07T00:10:13.581Z [error]: Authentication failed {"stack":"Error: Authentication failed\n    at /app/src/api/v1/middlewares/requireAuthorization.ts:49:17\n    at Generator.throw (<anonymous>)\n    at rejected (/app/src/api/v1/middlewares/requireAuthorization.ts:6:65)","name":"Error"}
+2025-06-07T00:10:35.863Z [error]: Error finding authorized system {"error":{"code":"P2021","meta":{"modelName":"AuthorizedSystem","table":"public.AuthorizedSystem"},"clientVersion":"6.7.0","name":"PrismaClientKnownRequestError"},"name":"apisiat"}
+2025-06-07T00:10:35.865Z [error]: Authentication error {"error":{"statusCode":500,"isOperational":true}}
+2025-06-07T00:10:35.866Z [error]: Authentication failed {"stack":"Error: Authentication failed\n    at /app/src/api/v1/middlewares/requireAuthorization.ts:49:17\n    at Generator.throw (<anonymous>)\n    at rejected (/app/src/api/v1/middlewares/requireAuthorization.ts:6:65)","name":"Error"}
+2025-06-07T00:11:26.635Z [error]: Error finding authorized system {"error":{"code":"P2021","meta":{"modelName":"AuthorizedSystem","table":"public.AuthorizedSystem"},"clientVersion":"6.7.0","name":"PrismaClientKnownRequestError"},"name":"apisiat"}
+2025-06-07T00:11:26.635Z [error]: Authentication error {"error":{"statusCode":500,"isOperational":true}}
+2025-06-07T00:11:26.636Z [error]: Authentication failed {"stack":"Error: Authentication failed\n    at /app/src/api/v1/middlewares/requireAuthorization.ts:49:17\n    at Generator.throw (<anonymous>)\n    at rejected (/app/src/api/v1/middlewares/requireAuthorization.ts:6:65)","name":"Error"}
+2025-06-07T00:12:49.321Z [error]: Error finding authorized system {"error":{"code":"P2021","meta":{"modelName":"AuthorizedSystem","table":"public.AuthorizedSystem"},"clientVersion":"6.7.0","name":"PrismaClientKnownRequestError"},"name":"apisiat"}
+2025-06-07T00:12:49.323Z [error]: Authentication error {"error":{"statusCode":500,"isOperational":true}}
+2025-06-07T00:12:49.324Z [error]: Authentication failed {"stack":"Error: Authentication failed\n    at /app/src/api/v1/middlewares/requireAuthorization.ts:49:17\n    at Generator.throw (<anonymous>)\n    at rejected (/app/src/api/v1/middlewares/requireAuthorization.ts:6:65)","name":"Error"}
+2025-06-07T01:08:56.995Z [error]: Error finding authorized system {"error":{"code":"P2021","meta":{"modelName":"AuthorizedSystem","table":"public.AuthorizedSystem"},"clientVersion":"6.7.0","name":"PrismaClientKnownRequestError"},"name":"apisiat"}
+2025-06-07T01:08:56.999Z [error]: Authentication error {"error":{"statusCode":500,"isOperational":true}}
+2025-06-07T01:08:56.999Z [error]: Authentication failed {"stack":"Error: Authentication failed\n    at /app/src/api/v1/middlewares/requireAuthorization.ts:49:17\n    at Generator.throw (<anonymous>)\n    at rejected (/app/src/api/v1/middlewares/requireAuthorization.ts:6:65)","name":"Error"}
+2025-06-07T01:20:33.788Z [error]: Error finding authorized system {"error":{"code":"P2021","meta":{"modelName":"AuthorizedSystem","table":"public.AuthorizedSystem"},"clientVersion":"6.7.0","name":"PrismaClientKnownRequestError"},"name":"apisiat"}
+2025-06-07T01:20:33.789Z [error]: Authentication error {"error":{"statusCode":500,"isOperational":true}}
+2025-06-07T01:20:33.789Z [error]: Authentication failed {"stack":"Error: Authentication failed\n    at /app/src/api/v1/middlewares/requireAuthorization.ts:49:17\n    at Generator.throw (<anonymous>)\n    at rejected (/app/src/api/v1/middlewares/requireAuthorization.ts:6:65)","name":"Error"}
+2025-06-07T01:32:20.515Z [error]: Error finding authorized system {"error":{"code":"P2021","meta":{"modelName":"AuthorizedSystem","table":"public.AuthorizedSystem"},"clientVersion":"6.7.0","name":"PrismaClientKnownRequestError"},"name":"apisiat"}
+2025-06-07T01:32:20.516Z [error]: Authentication error {"error":{"statusCode":500,"isOperational":true}}
+2025-06-07T01:32:20.516Z [error]: Authentication failed {"stack":"Error: Authentication failed\n    at /app/src/api/v1/middlewares/requireAuthorization.ts:49:17\n    at Generator.throw (<anonymous>)\n    at rejected (/app/src/api/v1/middlewares/requireAuthorization.ts:6:65)","name":"Error"}
+2025-06-07T01:33:49.406Z [error]: Error finding authorized system {"error":{"code":"P2021","meta":{"modelName":"AuthorizedSystem","table":"public.AuthorizedSystem"},"clientVersion":"6.7.0","name":"PrismaClientKnownRequestError"},"name":"apisiat"}
+2025-06-07T01:33:49.407Z [error]: Authentication error {"error":{"statusCode":500,"isOperational":true}}
+2025-06-07T01:33:49.407Z [error]: Authentication failed {"stack":"Error: Authentication failed\n    at /app/src/api/v1/middlewares/requireAuthorization.ts:49:17\n    at Generator.throw (<anonymous>)\n    at rejected (/app/src/api/v1/middlewares/requireAuthorization.ts:6:65)","name":"Error"}
+2025-06-07T01:38:04.715Z [info]: Shutting down server... 
+2025-06-07T01:38:04.739Z [info]: Server shut down successfully 
+2025-06-07T01:38:06.070Z [info]: Connected to database 
+2025-06-07T01:38:06.074Z [info]: Server running on port 3000 in development mode 
+2025-06-07T01:38:06.074Z [info]: Health check available at http://localhost:3000/health 
+2025-06-07T01:38:15.211Z [error]: Error finding authorized system {"error":{"code":"P2021","meta":{"modelName":"AuthorizedSystem","table":"public.AuthorizedSystem"},"clientVersion":"6.7.0","name":"PrismaClientKnownRequestError"},"name":"apisiat"}
+2025-06-07T01:38:15.213Z [error]: Authentication error {"error":{"statusCode":500,"isOperational":true}}
+2025-06-07T01:38:15.214Z [error]: Authentication failed {"stack":"Error: Authentication failed\n    at /app/src/api/v1/middlewares/requireAuthorization.ts:49:17\n    at Generator.throw (<anonymous>)\n    at rejected (/app/src/api/v1/middlewares/requireAuthorization.ts:6:65)","name":"Error"}
+2025-06-07T01:38:31.509Z [info]: Shutting down server... 
+2025-06-07T01:38:31.526Z [info]: Server shut down successfully 
+2025-06-07T01:38:32.511Z [info]: Connected to database 
+2025-06-07T01:38:32.514Z [info]: Server running on port 3000 in development mode 
+2025-06-07T01:38:32.514Z [info]: Health check available at http://localhost:3000/health 
+2025-06-07T01:38:36.979Z [error]: Error updating authorized system {"error":{"code":"P2021","meta":{"modelName":"AuthorizedSystem","table":"public.AuthorizedSystem"},"clientVersion":"6.7.0","name":"PrismaClientKnownRequestError"},"id":"856893f8-5ec8-4ec2-836b-df2ce571d471"}
+2025-06-07T01:38:36.981Z [error]: Error updating authorized system {"stack":"Error: Error updating authorized system\n    at /app/src/api/v1/controllers/admin/system.controller.ts:39:10\n    at Generator.throw (<anonymous>)\n    at rejected (/app/src/api/v1/controllers/admin/system.controller.ts:6:65)","name":"Error"}
+2025-06-07T01:39:37.144Z [error]: Error updating authorized system {"error":{"code":"P2021","meta":{"modelName":"AuthorizedSystem","table":"public.AuthorizedSystem"},"clientVersion":"6.7.0","name":"PrismaClientKnownRequestError"},"id":"856893f8-5ec8-4ec2-836b-df2ce571d471"}
+2025-06-07T01:39:37.146Z [error]: Error updating authorized system {"stack":"Error: Error updating authorized system\n    at /app/src/api/v1/controllers/admin/system.controller.ts:39:10\n    at Generator.throw (<anonymous>)\n    at rejected (/app/src/api/v1/controllers/admin/system.controller.ts:6:65)","name":"Error"}
+2025-06-07T01:48:13.117Z [info]: Shutting down server... 
+2025-06-07T01:48:13.132Z [info]: Server shut down successfully 
+2025-06-07T01:48:14.290Z [info]: Connected to database 
+2025-06-07T01:48:14.294Z [info]: Server running on port 3000 in development mode 
+2025-06-07T01:48:14.295Z [info]: Health check available at http://localhost:3000/health 

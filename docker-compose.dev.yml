@@ -1,0 +1,68 @@
+version: '3.8'
+
+services:
+  postgres:
+   image: postgres:15.3
+   restart: always
+   container_name: email-api-postgres-dev
+   environment:
+    POSTGRES_DB: email_notifications_dev
+    POSTGRES_USER: postgres
+    POSTGRES_PASSWORD: postgres123
+   ports:
+    - "5432:5432"
+   volumes:
+    - postgres_dev_data:/var/lib/postgresql/data
+   networks:
+    - email-api-dev-network
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "admin@admin.com"
+      PGADMIN_DEFAULT_PASSWORD: "admin"
+    ports:
+      - 80:80
+    depends_on:
+      - postgres
+    networks:
+      - email-api-dev-network
+
+  redis:
+    image: redis:7-alpine
+    container_name: email-api-redis-dev
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_dev_data:/data
+    networks:
+      - email-api-dev-network
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: email-api-app-dev
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: development
+      DATABASE_URL: postgresql://postgres:postgres123@postgres:5432/email_notifications_dev
+      REDIS_URL: redis://redis:6379
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - email-api-dev-network
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - ./logs:/app/logs
+
+volumes:
+  postgres_dev_data:
+  redis_dev_data:
+
+networks:
+  email-api-dev-network:
+    driver: bridge
