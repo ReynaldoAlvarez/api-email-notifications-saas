@@ -1,0 +1,25 @@
+2025-06-07T00:33:36.228Z [info]: Shutting down server... 
+2025-06-07T00:33:36.250Z [info]: Server shut down successfully 
+2025-06-07T00:33:42.687Z [info]: Connected to database 
+2025-06-07T00:33:42.689Z [info]: Server running on port 3000 in development mode 
+2025-06-07T00:33:42.689Z [info]: Health check available at http://localhost:3000/health 
+2025-06-07T01:38:03.979Z [info]: Shutting down server... 
+2025-06-07T01:38:03.987Z [info]: Server shut down successfully 
+2025-06-07T01:38:04.705Z [info]: Connected to database 
+2025-06-07T01:38:04.708Z [info]: Server running on port 3000 in development mode 
+2025-06-07T01:38:04.708Z [info]: Health check available at http://localhost:3000/health 
+2025-06-07T01:38:31.039Z [info]: Shutting down server... 
+2025-06-07T01:38:31.053Z [info]: Server shut down successfully 
+2025-06-07T01:38:31.910Z [info]: Connected to database 
+2025-06-07T01:38:31.912Z [info]: Server running on port 3000 in development mode 
+2025-06-07T01:38:31.912Z [info]: Health check available at http://localhost:3000/health 
+2025-06-07T01:39:23.267Z [info]: Shutting down server... 
+2025-06-07T01:39:23.277Z [info]: Server shut down successfully 
+2025-06-07T01:39:29.961Z [info]: Connected to database 
+2025-06-07T01:39:29.963Z [info]: Server running on port 3000 in development mode 
+2025-06-07T01:39:29.963Z [info]: Health check available at http://localhost:3000/health 
+2025-06-07T01:48:13.579Z [info]: Shutting down server... 
+2025-06-07T01:48:13.589Z [info]: Server shut down successfully 
+2025-06-07T01:48:14.287Z [info]: Connected to database 
+2025-06-07T01:48:14.289Z [info]: Server running on port 3000 in development mode 
+2025-06-07T01:48:14.289Z [info]: Health check available at http://localhost:3000/health 

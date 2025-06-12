@@ -1,0 +1,5 @@
+2025-06-10T02:43:16.279Z [info]: Connected to database 
+2025-06-10T02:43:16.284Z [info]: Server running on port 3000 in development mode 
+2025-06-10T02:43:16.284Z [info]: Health check available at http://localhost:3000/health 
+2025-06-10T02:45:50.404Z [info]: Shutting down server... 
+2025-06-10T02:45:50.416Z [info]: Server shut down successfully 

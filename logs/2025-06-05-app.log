@@ -1,0 +1,55 @@
+2025-06-05T14:28:21.869Z [info]: Shutting down server... 
+2025-06-05T14:28:21.907Z [info]: Server shut down successfully 
+2025-06-05T14:29:06.281Z [info]: Connected to database 
+2025-06-05T14:29:06.285Z [info]: Server running on port 3000 in development mode 
+2025-06-05T14:29:06.286Z [info]: Health check available at http://localhost:3000/health 
+2025-06-05T14:32:53.115Z [info]: Shutting down server... 
+2025-06-05T14:32:53.144Z [info]: Server shut down successfully 
+ running at `postgres:5432`. {"0":"F","1":"a","2":"i","3":"l","4":"e","5":"d","6":" ","7":"t","8":"o","9":" ","10":"s","11":"t","12":"a","13":"r","14":"t","15":" ","16":"s","17":"e","18":"r","19":"v","20":"e","21":"r","stack":"PrismaClientInitializationError: Can't reach database server at `postgres:5432`\n\nPlease make sure your database server is running at `postgres:5432`.\n    at r (/Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/node_modules/.pnpm/@prisma+client@6.7.0_prisma@6.7.0_typescript@5.8.3__typescript@5.8.3/node_modules/@prisma/client/runtime/library.js:112:2565)","name":"PrismaClientInitializationError"}
+2025-06-05T14:41:27.116Z [error]: Can't reach database server at `postgres:5432`
+
+Please make sure your database server is running at `postgres:5432`. {"0":"F","1":"a","2":"i","3":"l","4":"e","5":"d","6":" ","7":"t","8":"o","9":" ","10":"s","11":"t","12":"a","13":"r","14":"t","15":" ","16":"s","17":"e","18":"r","19":"v","20":"e","21":"r","stack":"PrismaClientInitializationError: Can't reach database server at `postgres:5432`\n\nPlease make sure your database server is running at `postgres:5432`.\n    at r (/Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/node_modules/.pnpm/@prisma+client@6.7.0_prisma@6.7.0_typescript@5.8.3__typescript@5.8.3/node_modules/@prisma/client/runtime/library.js:112:2565)","name":"PrismaClientInitializationError"}
+2025-06-05T14:42:05.463Z [error]: Authentication failed against database server, the provided database credentials for `emailapi` are not valid.
+
+Please make sure to provide valid database credentials for the database server at the configured address. {"0":"F","1":"a","2":"i","3":"l","4":"e","5":"d","6":" ","7":"t","8":"o","9":" ","10":"s","11":"t","12":"a","13":"r","14":"t","15":" ","16":"s","17":"e","18":"r","19":"v","20":"e","21":"r","stack":"PrismaClientInitializationError: Authentication failed against database server, the provided database credentials for `emailapi` are not valid.\n\nPlease make sure to provide valid database credentials for the database server at the configured address.\n    at r (/app/node_modules/.pnpm/@prisma+client@6.7.0_prisma@6.7.0_typescript@5.8.3__typescript@5.8.3/node_modules/@prisma/client/runtime/library.js:112:2565)","name":"PrismaClientInitializationError"}
+2025-06-05T14:44:39.569Z [error]: Authentication failed against database server, the provided database credentials for `emailapi` are not valid.
+
+Please make sure to provide valid database credentials for the database server at the configured address. {"0":"F","1":"a","2":"i","3":"l","4":"e","5":"d","6":" ","7":"t","8":"o","9":" ","10":"s","11":"t","12":"a","13":"r","14":"t","15":" ","16":"s","17":"e","18":"r","19":"v","20":"e","21":"r","stack":"PrismaClientInitializationError: Authentication failed against database server, the provided database credentials for `emailapi` are not valid.\n\nPlease make sure to provide valid database credentials for the database server at the configured address.\n    at r (/app/node_modules/.pnpm/@prisma+client@6.7.0_prisma@6.7.0_typescript@5.8.3__typescript@5.8.3/node_modules/@prisma/client/runtime/library.js:112:2565)","name":"PrismaClientInitializationError"}
+2025-06-05T14:44:45.301Z [error]: Can't reach database server at `postgres:5432`
+
+Please make sure your database server is running at `postgres:5432`. {"0":"F","1":"a","2":"i","3":"l","4":"e","5":"d","6":" ","7":"t","8":"o","9":" ","10":"s","11":"t","12":"a","13":"r","14":"t","15":" ","16":"s","17":"e","18":"r","19":"v","20":"e","21":"r","stack":"PrismaClientInitializationError: Can't reach database server at `postgres:5432`\n\nPlease make sure your database server is running at `postgres:5432`.\n    at r (/Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/node_modules/.pnpm/@prisma+client@6.7.0_prisma@6.7.0_typescript@5.8.3__typescript@5.8.3/node_modules/@prisma/client/runtime/library.js:112:2565)","name":"PrismaClientInitializationError"}
+2025-06-05T15:06:25.216Z [info]: Connected to database 
+2025-06-05T15:06:25.226Z [info]: Server running on port 3000 in development mode 
+2025-06-05T15:06:25.226Z [info]: Health check available at http://localhost:3000/health 
+2025-06-05T15:30:40.491Z [info]: Shutting down server... 
+2025-06-05T15:30:40.503Z [info]: Server shut down successfully 
+ running at `postgres:5432`. {"0":"F","1":"a","2":"i","3":"l","4":"e","5":"d","6":" ","7":"t","8":"o","9":" ","10":"s","11":"t","12":"a","13":"r","14":"t","15":" ","16":"s","17":"e","18":"r","19":"v","20":"e","21":"r","stack":"PrismaClientInitializationError: Can't reach database server at `postgres:5432`\n\nPlease make sure your database server is running at `postgres:5432`.\n    at r (/Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/node_modules/.pnpm/@prisma+client@6.7.0_prisma@6.7.0_typescript@5.8.3__typescript@5.8.3/node_modules/@prisma/client/runtime/library.js:112:2565)","name":"PrismaClientInitializationError"}
+2025-06-05T15:22:15.359Z [error]: Can't reach database server at `postgres:5432`
+
+Please make sure your database server is running at `postgres:5432`. {"0":"F","1":"a","2":"i","3":"l","4":"e","5":"d","6":" ","7":"t","8":"o","9":" ","10":"s","11":"t","12":"a","13":"r","14":"t","15":" ","16":"s","17":"e","18":"r","19":"v","20":"e","21":"r","stack":"PrismaClientInitializationError: Can't reach database server at `postgres:5432`\n\nPlease make sure your database server is running at `postgres:5432`.\n    at r (/Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/node_modules/.pnpm/@prisma+client@6.7.0_prisma@6.7.0_typescript@5.8.3__typescript@5.8.3/node_modules/@prisma/client/runtime/library.js:112:2565)","name":"PrismaClientInitializationError"}
+2025-06-05T15:31:21.008Z [info]: Connected to database 
+2025-06-05T15:31:21.011Z [info]: Server running on port 3000 in development mode 
+2025-06-05T15:31:21.012Z [info]: Health check available at http://localhost:3000/health 
+2025-06-05T15:32:24.269Z [info]: Shutting down server... 
+2025-06-05T15:32:24.282Z [info]: Server shut down successfully 
+ running at `postgres:5432`. {"0":"F","1":"a","2":"i","3":"l","4":"e","5":"d","6":" ","7":"t","8":"o","9":" ","10":"s","11":"t","12":"a","13":"r","14":"t","15":" ","16":"s","17":"e","18":"r","19":"v","20":"e","21":"r","stack":"PrismaClientInitializationError: Can't reach database server at `postgres:5432`\n\nPlease make sure your database server is running at `postgres:5432`.\n    at r (/Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/node_modules/.pnpm/@prisma+client@6.7.0_prisma@6.7.0_typescript@5.8.3__typescript@5.8.3/node_modules/@prisma/client/runtime/library.js:112:2565)","name":"PrismaClientInitializationError"}
+2025-06-05T15:32:53.351Z [info]: Connected to database 
+2025-06-05T15:32:53.354Z [info]: Server running on port 3000 in development mode 
+2025-06-05T15:32:53.354Z [info]: Health check available at http://localhost:3000/health 
+2025-06-05T15:33:14.090Z [error]: Can't reach database server at `postgres:5432`
+
+Please make sure your database server is running at `postgres:5432`. {"0":"F","1":"a","2":"i","3":"l","4":"e","5":"d","6":" ","7":"t","8":"o","9":" ","10":"s","11":"t","12":"a","13":"r","14":"t","15":" ","16":"s","17":"e","18":"r","19":"v","20":"e","21":"r","stack":"PrismaClientInitializationError: Can't reach database server at `postgres:5432`\n\nPlease make sure your database server is running at `postgres:5432`.\n    at r (/Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/node_modules/.pnpm/@prisma+client@6.7.0_prisma@6.7.0_typescript@5.8.3__typescript@5.8.3/node_modules/@prisma/client/runtime/library.js:112:2565)","name":"PrismaClientInitializationError"}
+2025-06-06T02:04:47.760Z [error]: Can't reach database server at `postgres:5432`
+
+Please make sure your database server is running at `postgres:5432`. {"0":"F","1":"a","2":"i","3":"l","4":"e","5":"d","6":" ","7":"t","8":"o","9":" ","10":"s","11":"t","12":"a","13":"r","14":"t","15":" ","16":"s","17":"e","18":"r","19":"v","20":"e","21":"r","stack":"PrismaClientInitializationError: Can't reach database server at `postgres:5432`\n\nPlease make sure your database server is running at `postgres:5432`.\n    at r (/Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/node_modules/.pnpm/@prisma+client@6.7.0_prisma@6.7.0_typescript@5.8.3__typescript@5.8.3/node_modules/@prisma/client/runtime/library.js:112:2565)","name":"PrismaClientInitializationError"}
+2025-06-06T02:46:03.203Z [error]: Can't reach database server at `postgres:5432`
+
+Please make sure your database server is running at `postgres:5432`. {"0":"F","1":"a","2":"i","3":"l","4":"e","5":"d","6":" ","7":"t","8":"o","9":" ","10":"s","11":"t","12":"a","13":"r","14":"t","15":" ","16":"s","17":"e","18":"r","19":"v","20":"e","21":"r","stack":"PrismaClientInitializationError: Can't reach database server at `postgres:5432`\n\nPlease make sure your database server is running at `postgres:5432`.\n    at r (/Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/node_modules/.pnpm/@prisma+client@6.7.0_prisma@6.7.0_typescript@5.8.3__typescript@5.8.3/node_modules/@prisma/client/runtime/library.js:112:2565)","name":"PrismaClientInitializationError"}
+2025-06-06T02:48:08.254Z [info]: Connected to database 
+2025-06-06T02:48:08.255Z [info]: Server running on port 3000 in development mode 
+2025-06-06T02:48:08.256Z [info]: Health check available at http://localhost:3000/health 
+2025-06-06T02:56:00.527Z [info]: Shutting down server... 
+2025-06-06T02:56:00.539Z [info]: Server shut down successfully 
+2025-06-06T02:56:06.694Z [info]: Connected to database 
+2025-06-06T02:56:06.697Z [info]: Server running on port 3000 in development mode 
+2025-06-06T02:56:06.697Z [info]: Health check available at http://localhost:3000/health 

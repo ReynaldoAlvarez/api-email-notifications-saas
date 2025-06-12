@@ -10,7 +10,6 @@ import { errorConverter, errorHandler, notFoundHandler } from './middleware/erro
 import { requireAuthorization } from './api/v1/middlewares/requireAuthorization';
 import emailRoutes from './api/v1/routes/email.routes';
 import templateRoutes from './api/v1/routes/template.routes';
-import en from 'zod/lib/locales/en';
 import systemRoutes from './api/v1/routes/admin/system.routes';
 import logRoutes from './api/v1/routes/admin/log.routes';
 import statsRoutes from './api/v1/routes/admin/stats.routes';

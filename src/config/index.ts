@@ -1,13 +1,8 @@
 // src/config/index.ts
-
 import { z } from 'zod';
-
 import dotenv from 'dotenv';
-
 // Cargar variables de .env
 dotenv.config();
-
-
 // Esquema de validación para variables de entorno
 const envSchema = z.object({
   NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
@@ -28,6 +23,9 @@ const envSchema = z.object({
   // Logging
   LOG_LEVEL: z.enum(['error', 'warn', 'info', 'http', 'verbose', 'debug', 'silly']).default('info'),
   LOG_FILE_PATH: z.string().optional(),
+  // Redis
+  REDIS_URL: z.string().default('redis://localhost:6379'),
+
 });
 
 // Validar y exportar configuración
@@ -62,6 +60,9 @@ export default {
   logging: {
     level: env.LOG_LEVEL,
     filePath: env.LOG_FILE_PATH,
+  },
+  redis: {
+    url: env.REDIS_URL,
   },
   isDev: env.NODE_ENV === 'development',
   isProd: env.NODE_ENV === 'production',
