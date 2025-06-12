@@ -12,10 +12,14 @@ model Permission {
   code        String    @unique
   name        String
   description String?   @db.Text
+  category    String?   @db.VarChar(50) // NUEVO: Para agrupar permisos (admin, basic, pro, etc.)
+  planLevel   String?   @db.VarChar(20) // NUEVO: Nivel mínimo de plan requerido
   createdAt   DateTime  @default(now()) @map("created_at")
   updatedAt   DateTime  @updatedAt @map("updated_at")
 
   systemPermissions SystemPermission[]
+  @@index([category]) // NUEVO índice
+  @@index([planLevel]) // NUEVO índice
 }
 // Tabla de relación muchos a muchos entre sistemas y permisos
 
@@ -33,20 +37,27 @@ model SystemPermission {
 // Modificación en AuthorizedSystem para usar la relación
 
 model AuthorizedSystem {
-  id               String             @id @default(uuid())
-  name             String             @unique @db.VarChar(100)
-  apiKeyHash       String             @unique
-  description      String?            @db.Text
-  allowedOrigins   String[]
-  createdAt        DateTime           @default(now()) @map("created_at")
-  updatedAt        DateTime           @updatedAt @map("updated_at")
-  isActive         Boolean            @default(true)
+  id             String    @id @default(uuid())
+  name           String    @unique @db.VarChar(100)
+  apiKeyHash     String    @unique
+  description    String?   @db.Text
+  allowedOrigins String[]
+  organizationId String?   // NUEVA: Relación con organización
+  isActive       Boolean   @default(true)
+  createdAt      DateTime  @default(now()) @map("created_at")
+  updatedAt      DateTime  @updatedAt @map("updated_at")
 
-  emailLogs        EmailLog[]
+  // Relaciones existentes
+  emailLogs         EmailLog[]
   systemPermissions SystemPermission[]
+  
+  // NUEVA: Relación con organización
+  organization Organization? @relation(fields: [organizationId], references: [id])
+  usageRecords UsageRecord[]
 
   @@index([name])
   @@index([isActive])
+  @@index([organizationId]) // NUEVO índice
 }
 // Modelo para eventos de webhook
 model WebhookEvent {
@@ -72,6 +83,8 @@ model EmailLog {
   status      EmailStatus @default(PENDING)
   systemId    String?
   templateId  String?
+  organizationId String?      // NUEVO: Para tracking directo por organización
+  billable       Boolean      @default(true) // NUEVO: Si cuenta para facturación
   createdAt   DateTime  @default(now()) @map("created_at")
   updatedAt   DateTime  @updatedAt @map("updated_at")
   attachments Json?
@@ -91,6 +104,8 @@ model EmailLog {
   @@index([templateId])
   @@index([status])
   @@index([createdAt])
+  @@index([organizationId]) // NUEVO índice
+  @@index([billable])        // NUEVO índice
 }
 
 model EmailTemplate {
@@ -110,6 +125,179 @@ model EmailTemplate {
   @@index([isActive])
 }
 
+
+
+// Modelo para usuarios individuales que se registran en el SaaS
+model User {
+  id            String    @id @default(uuid())
+  email         String    @unique @db.VarChar(255)
+  firstName     String    @db.VarChar(100)
+  lastName      String    @db.VarChar(100)
+  passwordHash  String
+  emailVerified Boolean   @default(false)
+  isActive      Boolean   @default(true)
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+  lastLoginAt   DateTime?
+
+  // Relaciones
+  organizations     UserOrganization[]
+  emailVerifications EmailVerification[]
+  passwordResets    PasswordReset[]
+
+  @@index([email])
+  @@index([emailVerified])
+  @@index([isActive])
+}
+
+// Modelo para organizaciones (una empresa puede tener múltiples sistemas)
+model Organization {
+  id          String   @id @default(uuid())
+  name        String   @db.VarChar(200)
+  slug        String   @unique @db.VarChar(100) // Para URLs amigables
+  description String?  @db.Text
+  website     String?  @db.VarChar(255)
+  industry    String?  @db.VarChar(100)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  // Relaciones
+  users             UserOrganization[]
+  authorizedSystems AuthorizedSystem[]
+  subscriptions     Subscription[]
+  usageRecords      UsageRecord[]
+
+  @@index([slug])
+  @@index([isActive])
+}
+
+// Tabla de relación muchos a muchos entre usuarios y organizaciones
+model UserOrganization {
+  id             String           @id @default(uuid())
+  userId         String
+  organizationId String
+  role           OrganizationRole @default(MEMBER)
+  isActive       Boolean          @default(true)
+  createdAt      DateTime         @default(now()) @map("created_at")
+  updatedAt      DateTime         @updatedAt @map("updated_at")
+
+  user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, organizationId])
+  @@index([userId])
+  @@index([organizationId])
+}
+
+// Modelo para planes de suscripción
+model Plan {
+  id                String  @id @default(uuid())
+  name              String  @unique @db.VarChar(100)
+  slug              String  @unique @db.VarChar(50)
+  description       String? @db.Text
+  price             Decimal @db.Decimal(10, 2) // Precio mensual
+  currency          String  @default("USD") @db.VarChar(3)
+  emailsPerMonth    Int     // Límite de correos por mes
+  templatesLimit    Int?    // Límite de plantillas (null = ilimitado)
+  apiCallsPerMinute Int     @default(60) // Rate limiting
+  features          Json    // Array de características del plan
+  isActive          Boolean @default(true)
+  createdAt         DateTime @default(now()) @map("created_at")
+  updatedAt         DateTime @updatedAt @map("updated_at")
+
+  subscriptions Subscription[]
+
+  @@index([slug])
+  @@index([isActive])
+}
+
+// Modelo para suscripciones de organizaciones a planes
+model Subscription {
+  id             String           @id @default(uuid())
+  organizationId String
+  planId         String
+  status         SubscriptionStatus @default(ACTIVE)
+  startDate      DateTime         @default(now())
+  endDate        DateTime?        // null para suscripciones activas
+  trialEndsAt    DateTime?        // Para períodos de prueba
+  cancelledAt    DateTime?
+  createdAt      DateTime         @default(now()) @map("created_at")
+  updatedAt      DateTime         @updatedAt @map("updated_at")
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  plan         Plan         @relation(fields: [planId], references: [id])
+
+  @@index([organizationId])
+  @@index([planId])
+  @@index([status])
+  @@index([startDate])
+}
+
+// Modelo para tracking de uso de correos
+model UsageRecord {
+  id             String    @id @default(uuid())
+  organizationId String
+  systemId       String?   // Opcional, para tracking por sistema específico
+  period         DateTime  // Mes/año del período (ej: 2024-01-01 para enero 2024)
+  emailsSent     Int       @default(0)
+  emailsDelivered Int      @default(0)
+  emailsFailed   Int       @default(0)
+  apiCalls       Int       @default(0)
+  createdAt      DateTime  @default(now()) @map("created_at")
+  updatedAt      DateTime  @updatedAt @map("updated_at")
+
+  organization     Organization      @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  authorizedSystem AuthorizedSystem? @relation(fields: [systemId], references: [id])
+
+  @@unique([organizationId, systemId, period])
+  @@index([organizationId])
+  @@index([period])
+}
+
+// Modelo para verificación de email
+model EmailVerification {
+  id        String   @id @default(uuid())
+  userId    String
+  token     String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([token])
+  @@index([expiresAt])
+}
+
+// Modelo para reset de contraseñas
+model PasswordReset {
+  id        String   @id @default(uuid())
+  userId    String
+  token     String   @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([token])
+  @@index([expiresAt])
+}
+
+// Nuevos enums
+enum OrganizationRole {
+  OWNER
+  ADMIN
+  MEMBER
+}
+
+enum SubscriptionStatus {
+  TRIAL
+  ACTIVE
+  PAST_DUE
+  CANCELLED
+  EXPIRED
+}
 enum EmailStatus {
   PENDING
   SCHEDULED

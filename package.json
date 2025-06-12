@@ -12,6 +12,7 @@
     "lint": "eslint . --ext .ts",
     "test": "jest",
     "prisma:seed": "ts-node prisma/seed.ts",
+    "seed:saas": "ts-node scripts/seed-saas-data.ts",
     "script:dev":"ts-node scripts/create-authorized-system.ts",
     "create-template": "ts-node scripts/create-email-template.ts"
   },
