@@ -9,6 +9,7 @@ declare global {
         name: string;
         permissions: string[];
       };
+      user?: AuthenticatedUser;
     }
   }
 }
@@ -19,4 +20,13 @@ export interface AuthorizedSystemInfo {
   permissions: string[];
   isActive: boolean;
   apiKeyHash: string;
+}
+// NUEVO: Interface para usuarios autenticados
+export interface AuthenticatedUser {
+  id: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  emailVerified: boolean;
+  isActive: boolean;
 }

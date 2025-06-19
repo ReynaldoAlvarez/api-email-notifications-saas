@@ -17,7 +17,9 @@ const envSchema = z.object({
   AWS_SES_CONFIGURATION_SET: z.string().optional(),
   
   // Security
-  JWT_SECRET: z.string().optional(),
+  JWT_SECRET: z.string().min(32, 'JWT_SECRET must be at least 32 characters'), // CAMBIO: ahora requerido
+  SES_RATE_LIMIT: z.string().transform(val => parseInt(val, 10)).default('1'),
+ 
   API_RATE_LIMIT: z.string().transform(val => parseInt(val, 10)).default('100'),
   
   // Logging

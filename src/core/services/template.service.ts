@@ -51,7 +51,8 @@ export async function renderTemplate(
 
 
 // Crear plantilla
-export const createEmailTemplate = async (name: string, subject: string, contentHtml: string, contentText?: string, variables?: string[]): Promise<EmailTemplateType> => {
+export const createEmailTemplate = async (name: string, subject: string, contentHtml: string, contentText?: string, variables?: string[], systemId?:string): Promise<EmailTemplateType> => {
+  
   const template = await prisma.emailTemplate.create({
     data: {
       name,
@@ -59,7 +60,8 @@ export const createEmailTemplate = async (name: string, subject: string, content
       contentHtml,
       contentText: contentText || "",
       variables: variables || [],
-      isActive: true
+      isActive: true,
+      systemId: systemId
     }
   });
   
@@ -70,7 +72,8 @@ export const createEmailTemplate = async (name: string, subject: string, content
     contentHtml: template.contentHtml,
     contentText: template.contentText || "", // Ensure contentText is always a string
     variables: template.variables,
-    isActive: template.isActive
+    isActive: template.isActive,
+    systemId: template.systemId || "",
   };
 };
 
@@ -87,11 +90,49 @@ export const getEmailTemplate = async (id: string): Promise<EmailTemplateType | 
     subject: template.subject,
     contentHtml: template.contentHtml,
     contentText: template.contentText || "", // Ensure contentText is always a string
+    systemId: template.systemId || "",
     variables: template.variables,
     isActive: template.isActive
   };
 };
 
+
+export const getEmailTemplateBySystemId = async (systemId: string): Promise<EmailTemplateType[]> => {
+  const templates = await prisma.emailTemplate.findMany({
+    where: {
+      systemId
+    }
+  });
+  if (!templates.length) return [];
+  return templates.map(template => ({
+    name: template.name,
+    subject: template.subject,
+    contentHtml: template.contentHtml,
+    contentText: template.contentText || "", // Convert null to empty string
+    variables: template.variables,
+    isActive: template.isActive,
+    systemId: template.systemId || "", // Convert null to empty string
+  }));
+};  
+// leer plantilla por nombre y id del sistema
+export const getEmailTemplateByNameAndId = async (name: string, id:string):Promise<EmailTemplateType | null> => {
+const data = await prisma.emailTemplate.findFirst({
+  where: {
+    name,
+    systemId: id
+  }
+  });  
+  if (!data) return null;
+  return {
+    name: data.name,
+    subject: data.subject,
+    contentHtml: data.contentHtml,
+    contentText: data.contentText || "", // Ensure contentText is always a string
+    variables: data.variables,
+    systemId: data.systemId || "",
+    isActive: data.isActive
+  };
+}
 // Actualizar plantilla
 export const updateEmailTemplate = async (id: string, name: string, subject: string, contentHtml: string, contentText?: string, variables?: string[]): Promise<EmailTemplateType | null> => {
   const template = await prisma.emailTemplate.update({
@@ -112,7 +153,8 @@ export const updateEmailTemplate = async (id: string, name: string, subject: str
     contentHtml: template.contentHtml,
     contentText: template.contentText || "", // Ensure contentText is always a string
     variables: template.variables,
-    isActive: template.isActive
+    isActive: template.isActive,
+    systemId: template.systemId || "",
   };
 };
 
@@ -128,6 +170,7 @@ export const deleteEmailTemplate = async (id: string): Promise<EmailTemplateType
     contentHtml: template.contentHtml,
     contentText: template.contentText || "", // Ensure contentText is always a string
     variables: template.variables,
-    isActive: template.isActive
+    isActive: template.isActive,
+    systemId: template.systemId || "",
   };
 };
