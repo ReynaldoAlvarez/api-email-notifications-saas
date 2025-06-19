@@ -54,6 +54,7 @@ model AuthorizedSystem {
   // NUEVA: Relación con organización
   organization Organization? @relation(fields: [organizationId], references: [id])
   usageRecords UsageRecord[]
+  emailTemplates EmailTemplate[]
 
   @@index([name])
   @@index([isActive])
@@ -110,7 +111,7 @@ model EmailLog {
 
 model EmailTemplate {
   id          String    @id @default(uuid())
-  name        String    @unique @db.VarChar(100)
+  name        String    @db.VarChar(100)
   subject     String    @db.VarChar(255)
   contentHtml String    @db.Text
   contentText String?   @db.Text
@@ -118,9 +119,11 @@ model EmailTemplate {
   createdAt   DateTime  @default(now()) @map("created_at")
   updatedAt   DateTime  @updatedAt @map("updated_at")
   isActive    Boolean   @default(true)
+  systemId    String?
 
+  authorizedSystem AuthorizedSystem? @relation(fields: [systemId], references: [id])    
   emailLogs EmailLog[]
-
+ 
   @@index([name])
   @@index([isActive])
 }

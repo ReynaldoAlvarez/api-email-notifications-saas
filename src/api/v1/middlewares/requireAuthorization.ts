@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { findAuthorizedSystemByName, verifyApiKey } from '../../../core/services/authorizedSystem.service';
+import { findAuthorizedSystemByName, findAuthorizedSystemById, verifyApiKey } from '../../../core/services/authorizedSystem.service';
 import logger from '../../../lib/logger';
 import { UnauthorizedError, ForbiddenError } from '../../../errors/ApiError';
 
@@ -18,7 +18,9 @@ export async function requireAuthorization(req: Request, res: Response, next: Ne
     }
 
     // Buscar el sistema autorizado por nombre (Client ID)
-    const system = await findAuthorizedSystemByName(clientId);
+    //const system = await findAuthorizedSystemByName(clientId);
+    // Buscar el sistema autorizado por ID (Client ID)
+    const system = await findAuthorizedSystemById(clientId);
 
     // Verificar que el sistema existe y está activo
     if (!system || !system.isActive) {

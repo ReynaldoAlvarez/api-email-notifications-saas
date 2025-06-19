@@ -13,6 +13,10 @@ import templateRoutes from './api/v1/routes/template.routes';
 import systemRoutes from './api/v1/routes/admin/system.routes';
 import logRoutes from './api/v1/routes/admin/log.routes';
 import statsRoutes from './api/v1/routes/admin/stats.routes';
+// Importar nuevas rutas SaaS
+import authRoutes from './api/v1/routes/auth.routes';
+import accountRoutes from './api/v1/routes/account.routes';
+
 
 // Crear aplicación Express
 const app = express();
@@ -51,6 +55,11 @@ app.get('/health', (req, res) => {
 
 
 // Aquí se importarán y usarán las rutas de la API
+// Rutas públicas de autenticación (SaaS)
+app.use('/api/v1/auth', authRoutes);
+
+// Rutas autenticadas de cuenta (SaaS)
+app.use('/api/v1/account', accountRoutes);
 // app.use('/api/v1', apiRoutes);
 app.get('/api/v1/auth-test', requireAuthorization, (req, res) => {
   res.json({
