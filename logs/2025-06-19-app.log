@@ -208,3 +208,91 @@
 2025-06-19T22:56:34.913Z [info]: Health check available at http://localhost:3000/health 
 2025-06-19T23:01:25.702Z [info]: Shutting down server... 
 2025-06-19T23:01:25.712Z [info]: Server shut down successfully 
+2025-06-19T23:40:23.983Z [info]: Connected to database 
+2025-06-19T23:40:23.985Z [info]: Server running on port 3000 in development mode 
+2025-06-19T23:40:23.986Z [info]: Health check available at http://localhost:3000/health 
+2025-06-19T23:51:10.437Z [info]: User created: test@ejemplo.com 
+2025-06-20T00:04:47.362Z [info]: Shutting down server... 
+2025-06-20T00:04:47.379Z [info]: Server shut down successfully 
+2025-06-20T00:04:48.209Z [info]: Connected to database 
+2025-06-20T00:04:48.212Z [info]: Server running on port 3000 in development mode 
+2025-06-20T00:04:48.212Z [info]: Health check available at http://localhost:3000/health 
+2025-06-20T00:07:48.112Z [info]: Shutting down server... 
+2025-06-20T00:07:48.121Z [info]: Server shut down successfully 
+2025-06-20T00:07:48.824Z [info]: Connected to database 
+2025-06-20T00:07:48.825Z [info]: Server running on port 3000 in development mode 
+2025-06-20T00:07:48.825Z [info]: Health check available at http://localhost:3000/health 
+2025-06-20T00:08:03.367Z [info]: Shutting down server... 
+2025-06-20T00:08:03.378Z [info]: Server shut down successfully 
+2025-06-20T00:08:09.626Z [info]: Connected to database 
+2025-06-20T00:08:09.628Z [info]: Server running on port 3000 in development mode 
+2025-06-20T00:08:09.628Z [info]: Health check available at http://localhost:3000/health 
+2025-06-20T00:10:54.562Z [info]: Shutting down server... 
+2025-06-20T00:10:54.571Z [info]: Server shut down successfully 
+2025-06-20T00:11:01.063Z [info]: Connected to database 
+2025-06-20T00:11:01.065Z [info]: Server running on port 3000 in development mode 
+2025-06-20T00:11:01.065Z [info]: Health check available at http://localhost:3000/health 
+2025-06-20T00:14:26.813Z [info]: Shutting down server... 
+2025-06-20T00:14:26.825Z [info]: Server shut down successfully 
+2025-06-20T00:14:27.520Z [info]: Connected to database 
+2025-06-20T00:14:27.522Z [info]: Server running on port 3000 in development mode 
+2025-06-20T00:14:27.522Z [info]: Health check available at http://localhost:3000/health 
+2025-06-20T00:14:32.842Z [info]: Shutting down server... 
+2025-06-20T00:14:32.850Z [info]: Server shut down successfully 
+2025-06-20T00:14:39.529Z [info]: Connected to database 
+2025-06-20T00:14:39.530Z [info]: Server running on port 3000 in development mode 
+2025-06-20T00:14:39.530Z [info]: Health check available at http://localhost:3000/health 
+2025-06-20T00:15:44.322Z [info]: Shutting down server... 
+2025-06-20T00:15:44.329Z [info]: Server shut down successfully 
+2025-06-20T00:15:45.015Z [info]: Connected to database 
+2025-06-20T00:15:45.017Z [info]: Server running on port 3000 in development mode 
+2025-06-20T00:15:45.017Z [info]: Health check available at http://localhost:3000/health 
+2025-06-20T01:55:53.875Z [info]: Shutting down server... 
+2025-06-20T01:55:53.903Z [info]: Server shut down successfully 
+2025-06-20T01:55:54.731Z [info]: Connected to database 
+2025-06-20T01:55:54.735Z [info]: Server running on port 3000 in development mode 
+2025-06-20T01:55:54.735Z [info]: Health check available at http://localhost:3000/health 
+2025-06-20T01:56:31.546Z [info]: Shutting down server... 
+2025-06-20T01:56:31.557Z [info]: Server shut down successfully 
+2025-06-20T01:56:32.270Z [info]: Connected to database 
+2025-06-20T01:56:32.271Z [info]: Server running on port 3000 in development mode 
+2025-06-20T01:56:32.272Z [info]: Health check available at http://localhost:3000/health 
+2025-06-20T01:59:49.262Z [info]: Shutting down server... 
+2025-06-20T01:59:49.270Z [info]: Server shut down successfully 
+2025-06-20T01:59:50.032Z [info]: Connected to database 
+2025-06-20T01:59:50.034Z [info]: Server running on port 3000 in development mode 
+2025-06-20T01:59:50.034Z [info]: Health check available at http://localhost:3000/health 
+2025-06-20T02:01:03.592Z [info]: Shutting down server... 
+2025-06-20T02:01:03.602Z [info]: Server shut down successfully 
+2025-06-20T02:01:04.421Z [info]: Connected to database 
+2025-06-20T02:01:04.423Z [info]: Server running on port 3000 in development mode 
+2025-06-20T02:01:04.423Z [info]: Health check available at http://localhost:3000/health 
+2025-06-20T02:01:35.258Z [info]: Shutting down server... 
+2025-06-20T02:01:35.265Z [info]: Server shut down successfully 
+2025-06-20T02:01:35.881Z [info]: Connected to database 
+2025-06-20T02:01:35.883Z [info]: Server running on port 3000 in development mode 
+2025-06-20T02:01:35.883Z [info]: Health check available at http://localhost:3000/health 
+2025-06-20T02:01:46.351Z [info]: Shutting down server... 
+2025-06-20T02:01:46.358Z [info]: Server shut down successfully 
+2025-06-20T02:01:53.507Z [info]: Connected to database 
+2025-06-20T02:01:53.508Z [info]: Server running on port 3000 in development mode 
+2025-06-20T02:01:53.509Z [info]: Health check available at http://localhost:3000/health 
+2025-06-20T02:05:34.172Z [info]: Shutting down server... 
+2025-06-20T02:05:34.183Z [info]: Server shut down successfully 
+2025-06-20T02:07:01.942Z [info]: Connected to database 
+2025-06-20T02:07:01.945Z [info]: Server running on port 3000 in development mode 
+2025-06-20T02:07:01.946Z [info]: Health check available at http://localhost:3000/health 
+2025-06-20T02:08:07.382Z [error]: Not found - / {"stack":"Error: Not found - /\n    at notFoundHandler (/Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/src/middleware/errorHandler.ts:35:17)\n    at Layer.handleRequest (/Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/node_modules/.pnpm/router@2.2.0/node_modules/router/lib/layer.js:152:17)\n    at trimPrefix (/Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/node_modules/.pnpm/router@2.2.0/node_modules/router/index.js:342:13)\n    at /Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/node_modules/.pnpm/router@2.2.0/node_modules/router/index.js:297:9\n    at processParams (/Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/node_modules/.pnpm/router@2.2.0/node_modules/router/index.js:582:12)\n    at next (/Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/node_modules/.pnpm/router@2.2.0/node_modules/router/index.js:291:5)\n    at logger (/Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/node_modules/.pnpm/morgan@1.10.0/node_modules/morgan/index.js:144:5)\n    at Layer.handleRequest (/Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/node_modules/.pnpm/router@2.2.0/node_modules/router/lib/layer.js:152:17)\n    at trimPrefix (/Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/node_modules/.pnpm/router@2.2.0/node_modules/router/index.js:342:13)\n    at /Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/node_modules/.pnpm/router@2.2.0/node_modules/router/index.js:297:9","name":"Error"}
+2025-06-20T02:08:08.043Z [error]: Not found - /favicon.ico {"stack":"Error: Not found - /favicon.ico\n    at notFoundHandler (/Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/src/middleware/errorHandler.ts:35:17)\n    at Layer.handleRequest (/Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/node_modules/.pnpm/router@2.2.0/node_modules/router/lib/layer.js:152:17)\n    at trimPrefix (/Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/node_modules/.pnpm/router@2.2.0/node_modules/router/index.js:342:13)\n    at /Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/node_modules/.pnpm/router@2.2.0/node_modules/router/index.js:297:9\n    at processParams (/Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/node_modules/.pnpm/router@2.2.0/node_modules/router/index.js:582:12)\n    at next (/Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/node_modules/.pnpm/router@2.2.0/node_modules/router/index.js:291:5)\n    at logger (/Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/node_modules/.pnpm/morgan@1.10.0/node_modules/morgan/index.js:144:5)\n    at Layer.handleRequest (/Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/node_modules/.pnpm/router@2.2.0/node_modules/router/lib/layer.js:152:17)\n    at trimPrefix (/Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/node_modules/.pnpm/router@2.2.0/node_modules/router/index.js:342:13)\n    at /Users/vidalalvarez/Documents/CODEG/LUMINIA/notification email service/email-notification/node_modules/.pnpm/router@2.2.0/node_modules/router/index.js:297:9","name":"Error"}
+2025-06-20T02:08:49.858Z [info]: Shutting down server... 
+2025-06-20T02:08:49.869Z [info]: Server shut down successfully 
+2025-06-20T02:10:02.622Z [info]: Connected to database 
+2025-06-20T02:10:02.624Z [info]: Server running on port 3000 in development mode 
+2025-06-20T02:10:02.624Z [info]: Health check available at http://localhost:3000/health 
+2025-06-20T02:11:44.335Z [info]: Shutting down server... 
+2025-06-20T02:11:44.345Z [info]: Server shut down successfully 
+2025-06-20T02:13:14.855Z [info]: Connected to database 
+2025-06-20T02:13:14.857Z [info]: Server running on port 3000 in development mode 
+2025-06-20T02:13:14.857Z [info]: Health check available at http://localhost:3000/health 
+2025-06-20T02:15:52.538Z [info]: Shutting down server... 
+2025-06-20T02:15:52.547Z [info]: Server shut down successfully 
