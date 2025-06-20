@@ -3,4 +3,5 @@ node_modules
 /documentation
 .env
 .env.example
+/logs
 

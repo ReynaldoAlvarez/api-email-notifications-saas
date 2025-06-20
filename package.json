@@ -14,7 +14,7 @@
     "test": "jest",
     "prisma:seed": "ts-node prisma/seed.ts",
     "seed:saas": "ts-node scripts/seed-saas-data.ts",
-    "script:dev":"ts-node scripts/create-authorized-system.ts",
+    "script:dev": "ts-node scripts/create-authorized-system.ts",
     "create-template": "ts-node scripts/create-email-template.ts",
     "db:reset": "prisma migrate reset && npm run seed:saas"
   },
@@ -23,6 +23,7 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@prisma/client": "^6.6.0",
     "@types/bcryptjs": "^3.0.0",
     "@types/bull": "^4.10.4",
     "@types/cors": "^2.8.17",
@@ -33,14 +34,11 @@
     "@types/jsonwebtoken": "^9.0.9",
     "@types/morgan": "^1.9.9",
     "@types/node": "^22.14.1",
-    "@prisma/client": "^6.6.0",
-    "@types/nodemailer": "^6.4.17"
+    "@types/nodemailer": "^6.4.17",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.8"
   },
   "dependencies": {
-    "prisma": "^6.6.0",
-    "ts-node": "^10.9.2",
-    "ts-node-dev": "^2.0.0",
-    "typescript": "^5.8.3",
     "aws-sdk": "^2.1692.0",
     "bcryptjs": "^3.0.2",
     "bull": "^4.16.5",
@@ -58,7 +56,13 @@
     "nodemailer": "^6.10.1",
     "npm": "^11.4.1",
     "pdf-lib": "^1.17.1",
+    "prisma": "^6.6.0",
     "redis": "^5.0.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.8.3",
     "winston": "^3.17.0",
     "winston-daily-rotate-file": "^5.0.0",
     "zod": "^3.25.28"
