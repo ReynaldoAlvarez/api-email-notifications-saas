@@ -27,7 +27,6 @@ const envSchema = z.object({
   LOG_FILE_PATH: z.string().optional(),
   // Redis
   REDIS_URL: z.string().default('redis://localhost:6379'),
-
 });
 
 // Validar y exportar configuración
@@ -41,7 +40,7 @@ if (!result.success) {
 const env = result.data;
 
 export default {
-  env: env.NODE_ENV,
+  env: parseInt(env.PORT || '3000'),
   port: parseInt(env.PORT, 10),
   db: {
     url: env.DATABASE_URL,
