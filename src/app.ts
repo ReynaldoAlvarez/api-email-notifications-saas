@@ -19,7 +19,7 @@ import statsRoutes from './api/v1/routes/admin/stats.routes';
 import authRoutes from './api/v1/routes/auth.routes';
 import accountRoutes from './api/v1/routes/account.routes';
 
-
+console.log("add")
 // Crear aplicación Express
 const app = express();
 
