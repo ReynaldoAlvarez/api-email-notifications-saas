@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@prisma/client':
+        specifier: ^6.6.0
+        version: 6.7.0(prisma@6.7.0(typescript@5.8.3))(typescript@5.8.3)
       aws-sdk:
         specifier: ^2.1692.0
         version: 2.1692.0
@@ -90,9 +93,6 @@ importers:
         specifier: ^3.25.28
         version: 3.25.30
     devDependencies:
-      '@prisma/client':
-        specifier: ^6.6.0
-        version: 6.7.0(prisma@6.7.0(typescript@5.8.3))(typescript@5.8.3)
       '@types/bcryptjs':
         specifier: ^3.0.0
         version: 3.0.0
