@@ -1,10 +1,10 @@
 {
   "name": "email-api",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "dev": "tsnd --respawn --clear src/server.ts",
-    "build": "rimraf ./dist && tsc",
+    "build": "tsc",
     "start": "node dist/server.js",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
@@ -16,7 +16,11 @@
     "seed:saas": "ts-node scripts/seed-saas-data.ts",
     "script:dev": "ts-node scripts/create-authorized-system.ts",
     "create-template": "ts-node scripts/create-email-template.ts",
-    "db:reset": "prisma migrate reset && npm run seed:saas"
+    "db:reset": "prisma migrate reset && npm run seed:saas",
+    "start:migrate": "npm run db:migrate && npm run start",
+    "db:migrate": "npx prisma migrate deploy",
+    "db:seed": "npx prisma db seed",
+    "db:generate": "npx prisma generate"
   },
   "keywords": [],
   "author": "",
